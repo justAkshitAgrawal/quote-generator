@@ -7,18 +7,21 @@ const loader = document.getElementById("loader");
 
 let apiQuotes = [];
 
-function loading() {
+// Display Loader
+function loaderDisplay() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
-function complete() {
+// Hide Loader
+function loaderHide() {
   loader.hidden = true;
   quoteContainer.hidden = false;
 }
 
+//Function to get new random quote
 function newQuote() {
-  loading();
+  loaderDisplay();
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
   if (!quote.author) {
@@ -33,7 +36,7 @@ function newQuote() {
     quoteText.classList.remove("long-quote");
   }
   quoteText.textContent = quote.text;
-  complete();
+  loaderHide();
 }
 
 function tweetQuote() {
@@ -41,8 +44,9 @@ function tweetQuote() {
   window.open(twitterUrl, "_blank");
 }
 
+//Load quotes from API
 async function getQuotes() {
-  loading();
+  loaderDisplay();
 
   const apiUrl = "https://type.fit/api/quotes";
 
