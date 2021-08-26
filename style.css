@@ -91,6 +91,22 @@ button:active {
   animation: spin 2s linear infinite;
 }
 
+footer {
+  font-size: 1.2rem;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 5px;
+  margin: 15px;
+  width: 100%;
+}
+
+#foot {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
